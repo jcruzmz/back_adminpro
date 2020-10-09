@@ -10,17 +10,16 @@ const app = express();
 //Configuracion del cors
 app.use(cors()); //Es un midleware la palabra use
 
+//Lectura y parseo del boy
+app.use(express.json());
+
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/login', require('./routes/auth'));
+
 // Base de datos mongoose
 dbConnection();
 //username: mean_user
 //eaA3QkQN6ukeMnPD
-//Rutas
-app.get('/', (req, res) => {
-    res.status(202).json({
-        ok: true,
-        msg: 'Hola mundo'
-    })
-});
 
 app.listen(process.env.port, () => {
     console.log(`Servidor corriendo en http://localhost:${process.env.port}`)
