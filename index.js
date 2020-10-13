@@ -25,6 +25,9 @@ dbConnection();
 //username: mean_user
 //eaA3QkQN6ukeMnPD
 
+//Directorio publico
+app.use(express.static('public'));
+
 app.listen(process.env.port, () => {
     console.log(`Servidor corriendo en http://localhost:${process.env.port}`)
 });
