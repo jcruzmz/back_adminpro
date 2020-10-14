@@ -28,6 +28,6 @@ dbConnection();
 //Directorio publico
 app.use(express.static('public'));
 
-app.listen(process.env.port, () => {
-    console.log(`Servidor corriendo en http://localhost:${process.env.port}`)
+app.listen(4400, () => {
+    console.log(`Servidor corriendo en http://localhost:4400`)
 });
