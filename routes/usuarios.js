@@ -14,7 +14,7 @@ router.get('/', [
 ], getUsuarios);
 //middleware express validator
 router.post('/', [
-    validarJWT,
+    // validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('password', 'El password es obligatorio').not().isEmpty(),
     check('email', 'El email no tiene el formato adecuado').isEmail(),
