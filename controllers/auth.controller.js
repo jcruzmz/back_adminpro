@@ -76,7 +76,27 @@ const loginGoogle = async(req, res = response) => {
         })
     }
 }
+
+const renewToken = async(req, res = response) => {
+    const id = req.uid;
+    //Generar un token
+    const token = await generarJWT(id);
+    try {
+        res.status(200).json({
+            ok: true,
+            msg: 'renew token',
+            token
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Error interno del servidor'
+        })
+    }
+}
 module.exports = {
     login,
-    loginGoogle
+    loginGoogle,
+    renewToken
 }
